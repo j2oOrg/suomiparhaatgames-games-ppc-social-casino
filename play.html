@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play | Suomiparhaatgames</title>
+  <meta name="description" content="Open a free-play game on the Suomiparhaatgames play page. Free-play only, 18+.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --night: #f7f3ed;
+      --surface: #ffffff;
+      --surface-2: #f2ebe3;
+      --glow: #2fae9c;
+      --ember: #f07b5a;
+      --sun: #f1c56d;
+      --ink: #1f1b16;
+      --muted: #4f5a65;
+      --focus: #2f6f8f;
+      --shadow: 0 22px 60px rgba(41, 36, 28, 0.18);
+    }
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-regular-400.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-bold-700.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      background: radial-gradient(1200px 600px at 8% -10%, rgba(47, 174, 156, 0.22), transparent 60%),
+        radial-gradient(900px 500px at 92% 0%, rgba(240, 123, 90, 0.22), transparent 60%),
+        #f7f3ed;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background: linear-gradient(120deg, rgba(31, 27, 22, 0.04) 0%, transparent 40%);
+    }
+
+    body::after {
+      background: radial-gradient(500px 320px at 75% 85%, rgba(241, 197, 109, 0.2), transparent 70%);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 243, 237, 0.92);
+      border-bottom: 1px solid rgba(31, 27, 22, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    header > div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    header > div > a {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--sun);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.3rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      opacity: 0.78;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      opacity: 1;
+      color: var(--glow);
+    }
+
+    nav a[aria-current="page"] {
+      color: var(--sun);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    main > section {
+      padding: 3.8rem 1.5rem;
+      animation: rise 0.8s ease both;
+    }
+
+    main > section:nth-of-type(2) {
+      animation-delay: 0.12s;
+    }
+
+    main > section > div {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    button,
+    a[data-cta],
+    a[data-play] {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--sun), var(--ember));
+      color: #1c120d;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover,
+    a[data-cta]:hover,
+    a[data-play]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(41, 36, 28, 0.24);
+    }
+
+    a[data-cta="ghost"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.22);
+      box-shadow: none;
+    }
+
+    a[data-cta="ghost"]:hover {
+      border-color: rgba(31, 27, 22, 0.45);
+      transform: translateY(-1px);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 27, 22, 0.12);
+      background: rgba(245, 239, 231, 0.95);
+    }
+
+    footer > div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.6rem 1.5rem;
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    footer form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    footer small {
+      color: var(--muted);
+    }
+
+    [data-cookie-banner] {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: 1.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    [data-cookie-banner] p {
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    [data-cookie-actions] {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    button[data-cookie-action="decline"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.3);
+      box-shadow: none;
+    }
+
+    .play-hero-l7c2m8 {
+      padding-top: 5.2rem;
+      background-image: linear-gradient(120deg, rgba(10, 8, 7, 0.72), rgba(10, 8, 7, 0.38)), url("3d-dark-grunge-display-background-with-smoky-atmosphere.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fdf7ef;
+    }
+
+    .play-hero-l7c2m8 > div {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .play-hero-l7c2m8 p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .play-stage-m2v9r5 > div {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .play-stage-m2v9r5 > div > div {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 20px;
+      padding: 1.4rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+    }
+
+    .play-stage-m2v9r5 > div > div:first-child {
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .play-stage-m2v9r5 figure {
+      margin: 1.2rem 0 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+    }
+
+    .play-stage-m2v9r5 figure figcaption {
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .play-stage-m2v9r5 iframe {
+      width: 100%;
+      min-height: 680px;
+      height: 70vh;
+      max-height: 820px;
+      border: 0;
+      border-radius: 16px;
+      background: #f1ebe4;
+    }
+
+    [data-badges] {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    [data-badges] li {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(31, 27, 22, 0.18);
+    }
+
+    [data-actions] {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    [data-play-note] {
+      background: rgba(241, 197, 109, 0.2);
+      border-radius: 12px;
+      padding: 0.7rem 0.9rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    @media (min-width: 980px) {
+      .play-stage-m2v9r5 > div {
+        grid-template-columns: 1.6fr 0.8fr;
+        align-items: start;
+      }
+
+      footer > div {
+        grid-template-columns: 1.3fr 1fr 0.8fr;
+        align-items: start;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" aria-label="Suomiparhaatgames home">Suomiparhaatgames</a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="games.html">Games</a>
+        <a href="play.html" aria-current="page">Play</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="policy.html">Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="play-hero-l7c2m8">
+      <div>
+        <p>Play stage</p>
+        <h1>Pop Sync, front and center.</h1>
+        <p>Press play to start the Pop Sync social casino game. This page is free-play only and is for adults 18+.</p>
+      </div>
+    </section>
+
+    <section class="play-stage-m2v9r5">
+      <div>
+        <div>
+          <p data-play-note>Free-play only. No real money, no prizes, no deposits, no cash-out.</p>
+          <iframe title="Suomiparhaatgames game" loading="lazy" allow="fullscreen" referrerpolicy="no-referrer"></iframe>
+        </div>
+        <div>
+          <span data-game-category>Pop Sync free play</span>
+          <h2 data-game-title>Pop Sync</h2>
+          <p data-game-description>Neon notes and a steady beat, built for a quick warmup.</p>
+          <ul data-badges>
+            <li>Free-play only</li>
+            <li>18+ only</li>
+            <li>No prizes</li>
+            <li>No cash-out</li>
+          </ul>
+          <div data-actions>
+            <button type="button" data-reroll>Restart session</button>
+            <a href="https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=nsyncpop&lang=en_GB&practice=1&channel=desktop&demo=2" target="_blank" rel="noopener" data-cta="ghost" data-open-link>Open in new tab</a>
+          </div>
+          <figure>
+            <img src="popmusic.png" alt="Pop music themed game preview">
+            <figcaption>Preview image for Pop Sync.</figcaption>
+          </figure>
+          <p><strong>18+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>How to keep it light</h2>
+          <p>Short sessions are the point.</p>
+        </header>
+        <p>Pop Sync is built for short breaks, not long marathons. If you only have a few minutes, that is plenty. There is no progress to save and nothing to win.</p>
+        <p>We do not process payments or collect financial details on this site.</p>
+        <p>If the embedded game does not load, the "Open in new tab" link is the quickest fix. Some browsers block iframes by default.</p>
+        <p>We suggest setting a simple time limit so the session feels like a quick reset and not a time sink.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>
+        <h2>Suomiparhaatgames</h2>
+        <p>Finnish-inspired play-for-fun with clear labels and a relaxed pace.</p>
+        <p><strong>18+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
+      </div>
+      <div>
+        <h3>Newsletter updates</h3>
+        <form data-newsletter-form>
+          <label>
+            Name
+            <input type="text" name="newsletter-name" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>
+            Email
+            <input type="email" name="newsletter-email" autocomplete="email" placeholder="you@example.com">
+          </label>
+          <button type="submit">Get updates</button>
+          <small data-newsletter-status aria-live="polite"></small>
+        </form>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="games.html">Game library</a></li>
+          <li><a href="play.html">Play</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="policy.html">Privacy</a></li>
+        </ul>
+        <small>Support: support@suomiparhaatgames.example</small>
+      </div>
+    </div>
+  </footer>
+
+  <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <div data-cookie-actions>
+      <button type="button" data-cookie-action="accept">Accept</button>
+      <button type="button" data-cookie-action="decline">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    // Play page interactions: cookie consent, newsletter feedback, and the game loader.
+    (function () {
+      // Cookie banner: save accept/decline choice in localStorage.
+      const banner = document.querySelector('[data-cookie-banner]');
+      const acceptButton = document.querySelector('[data-cookie-action="accept"]');
+      const declineButton = document.querySelector('[data-cookie-action="decline"]');
+      const storageKey = 'spg_cookie_choice';
+
+      try {
+        if (banner && localStorage.getItem(storageKey)) {
+          banner.hidden = true;
+        }
+      } catch (error) {
+        // localStorage unavailable
+      }
+
+      function setChoice(value) {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch (error) {
+          // localStorage unavailable
+        }
+        if (banner) {
+          banner.hidden = true;
+        }
+      }
+
+      if (acceptButton) {
+        acceptButton.addEventListener('click', () => setChoice('accepted'));
+      }
+
+      if (declineButton) {
+        declineButton.addEventListener('click', () => setChoice('declined'));
+      }
+
+      // Newsletter form: show a friendly success message only.
+      const newsletterForm = document.querySelector('[data-newsletter-form]');
+      if (newsletterForm) {
+        const status = newsletterForm.querySelector('[data-newsletter-status]');
+        newsletterForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const nameField = newsletterForm.querySelector('input[name="newsletter-name"]');
+          const emailField = newsletterForm.querySelector('input[name="newsletter-email"]');
+          const name = nameField ? nameField.value.trim() : '';
+          const email = emailField ? emailField.value.trim() : '';
+
+          if (!name || !email) {
+            if (status) {
+              status.textContent = 'Please enter your name and email.';
+            }
+            return;
+          }
+
+          if (status) {
+            status.textContent = `Thanks, ${name}. We will send updates when there is something new.`;
+          }
+          newsletterForm.reset();
+        });
+      }
+
+      // Game metadata for the play page.
+      const games = [
+        {
+          id: 'nsyncpop',
+          name: 'Pop Sync',
+          category: 'Pop Sync free play',
+          description: 'Neon notes and a steady beat, built for a quick warmup.'
+        }
+      ];
+
+      const gameUrl = 'https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=nsyncpop&lang=en_GB&practice=1&channel=desktop&demo=2';
+      const titleEl = document.querySelector('[data-game-title]');
+      const descEl = document.querySelector('[data-game-description]');
+      const categoryEl = document.querySelector('[data-game-category]');
+      const frameEl = document.querySelector('iframe');
+      const openLink = document.querySelector('[data-open-link]');
+      const rerollButton = document.querySelector('[data-reroll]');
+
+      function pickRandom() {
+        return games[Math.floor(Math.random() * games.length)];
+      }
+
+      // Apply the selected game to the UI and iframe.
+      function applyGame(game, forceReload) {
+        if (titleEl) titleEl.textContent = game.name;
+        if (descEl) descEl.textContent = game.description;
+        if (categoryEl) categoryEl.textContent = game.category;
+        if (openLink) openLink.href = gameUrl;
+        if (frameEl) {
+          if (forceReload) {
+            frameEl.src = 'about:blank';
+            setTimeout(() => {
+              frameEl.src = gameUrl;
+            }, 50);
+          } else {
+            frameEl.src = gameUrl;
+          }
+        }
+        const url = new URL(window.location.href);
+        url.searchParams.set('game', game.id);
+        history.replaceState({}, '', url);
+      }
+
+      // Load the requested game from the URL, or fall back to random.
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get('game');
+      const initial = games.find((game) => game.id === requested) || pickRandom();
+      applyGame(initial);
+
+      // Restart the game without reloading the page.
+      if (rerollButton) {
+        rerollButton.addEventListener('click', () => {
+          const nextGame = pickRandom();
+          applyGame(nextGame, true);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

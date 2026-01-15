@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Suomiparhaatgames</title>
+  <meta name="description" content="Contact the Suomiparhaatgames team. Ask a question, share feedback, or get a clear answer.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --night: #f7f3ed;
+      --surface: #ffffff;
+      --surface-2: #f2ebe3;
+      --glow: #2fae9c;
+      --ember: #f07b5a;
+      --sun: #f1c56d;
+      --ink: #1f1b16;
+      --muted: #4f5a65;
+      --focus: #2f6f8f;
+      --shadow: 0 22px 60px rgba(41, 36, 28, 0.18);
+    }
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-regular-400.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-bold-700.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      background: radial-gradient(1200px 600px at 8% -10%, rgba(47, 174, 156, 0.22), transparent 60%),
+        radial-gradient(900px 500px at 92% 0%, rgba(240, 123, 90, 0.22), transparent 60%),
+        #f7f3ed;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background: linear-gradient(120deg, rgba(31, 27, 22, 0.04) 0%, transparent 40%);
+    }
+
+    body::after {
+      background: radial-gradient(500px 320px at 75% 85%, rgba(241, 197, 109, 0.2), transparent 70%);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 243, 237, 0.92);
+      border-bottom: 1px solid rgba(31, 27, 22, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    header > div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    header > div > a {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--sun);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.3rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      opacity: 0.78;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      opacity: 1;
+      color: var(--glow);
+    }
+
+    nav a[aria-current="page"] {
+      color: var(--sun);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    main > section {
+      padding: 3.8rem 1.5rem;
+      animation: rise 0.8s ease both;
+    }
+
+    main > section:nth-of-type(2) {
+      animation-delay: 0.12s;
+    }
+
+    main > section > div {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    button,
+    a[data-cta],
+    a[data-play] {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--sun), var(--ember));
+      color: #1c120d;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover,
+    a[data-cta]:hover,
+    a[data-play]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(41, 36, 28, 0.24);
+    }
+
+    a[data-cta="ghost"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.22);
+      box-shadow: none;
+    }
+
+    a[data-cta="ghost"]:hover {
+      border-color: rgba(31, 27, 22, 0.45);
+      transform: translateY(-1px);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 27, 22, 0.12);
+      background: rgba(245, 239, 231, 0.95);
+    }
+
+    footer > div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.6rem 1.5rem;
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    footer form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    footer small {
+      color: var(--muted);
+    }
+
+    [data-cookie-banner] {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: 1.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    [data-cookie-banner] p {
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    [data-cookie-actions] {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    button[data-cookie-action="decline"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.3);
+      box-shadow: none;
+    }
+
+    .contact-hero-n6b1y4 {
+      padding-top: 5.2rem;
+      background-image: linear-gradient(120deg, rgba(10, 8, 7, 0.72), rgba(10, 8, 7, 0.38)), url("3d-dark-grunge-display-background-with-smoky-atmosphere.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fdf7ef;
+    }
+
+    .contact-hero-n6b1y4 > div {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .contact-hero-n6b1y4 p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .contact-form-o8d5s7 > div {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .contact-form-o8d5s7 form,
+    .contact-form-o8d5s7 aside {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 20px;
+      padding: 1.4rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+    }
+
+    .contact-form-o8d5s7 form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-form-o8d5s7 details {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-form-o8d5s7 summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .contact-form-o8d5s7 summary:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 980px) {
+      .contact-form-o8d5s7 > div {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      footer > div {
+        grid-template-columns: 1.3fr 1fr 0.8fr;
+        align-items: start;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" aria-label="Suomiparhaatgames home">Suomiparhaatgames</a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="games.html">Games</a>
+        <a href="play.html">Play</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="policy.html">Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero-n6b1y4">
+      <div>
+        <p>Contact</p>
+        <h1>We are here to give clear, practical answers.</h1>
+        <p>Send a short message, ask about free play, or share feedback. We respond in plain language.</p>
+      </div>
+    </section>
+
+    <section class="contact-form-o8d5s7">
+      <div>
+        <form data-contact-form>
+          <h2>Send a message</h2>
+          <label>
+            Name
+            <input type="text" name="contact-name" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>
+            Email
+            <input type="email" name="contact-email" autocomplete="email" placeholder="you@example.com">
+          </label>
+          <label>
+            Message
+            <textarea name="contact-message" placeholder="Tell us what is on your mind"></textarea>
+          </label>
+          <button type="submit">Send message</button>
+          <small data-contact-status aria-live="polite"></small>
+        </form>
+        <aside>
+          <h2>Quick answers</h2>
+          <details>
+            <summary>Are these games real money?</summary>
+            <p>No. They are free-play only, with no deposits, cash-out, or cash value.</p>
+          </details>
+          <details>
+            <summary>Do I need to install anything?</summary>
+            <p>No. Everything runs in your browser.</p>
+          </details>
+          <details>
+            <summary>How can I suggest a game idea?</summary>
+            <p>Send your idea through the form and we will review it.</p>
+          </details>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>What helps us reply faster</h2>
+          <p>Small details make a big difference.</p>
+        </header>
+        <p>If you are reporting a bug, tell us what device and browser you used. A short sentence is enough, and a screenshot is optional.</p>
+        <p>We are a small team, so replies may take a few days, especially on weekends. We still read every message.</p>
+        <p>We will never ask you for payment details in a message. If you are sending an idea for Pop Sync, include a short note on the mood you are aiming for. We keep a running list and revisit it during updates.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>
+        <h2>Suomiparhaatgames</h2>
+        <p>Finnish-inspired play-for-fun with clear labels and a relaxed pace.</p>
+        <p><strong>18+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
+      </div>
+      <div>
+        <h3>Newsletter updates</h3>
+        <form data-newsletter-form>
+          <label>
+            Name
+            <input type="text" name="newsletter-name" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>
+            Email
+            <input type="email" name="newsletter-email" autocomplete="email" placeholder="you@example.com">
+          </label>
+          <button type="submit">Get updates</button>
+          <small data-newsletter-status aria-live="polite"></small>
+        </form>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="games.html">Game library</a></li>
+          <li><a href="play.html">Play</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="policy.html">Privacy</a></li>
+        </ul>
+        <small>Support: support@suomiparhaatgames.example</small>
+      </div>
+    </div>
+  </footer>
+
+  <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <div data-cookie-actions>
+      <button type="button" data-cookie-action="accept">Accept</button>
+      <button type="button" data-cookie-action="decline">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    // Simple page interactions: cookie consent, newsletter feedback, and contact form messaging.
+    (function () {
+      // Cookie banner: save accept/decline choice in localStorage.
+      const banner = document.querySelector('[data-cookie-banner]');
+      const acceptButton = document.querySelector('[data-cookie-action="accept"]');
+      const declineButton = document.querySelector('[data-cookie-action="decline"]');
+      const storageKey = 'spg_cookie_choice';
+
+      try {
+        if (banner && localStorage.getItem(storageKey)) {
+          banner.hidden = true;
+        }
+      } catch (error) {
+        // localStorage unavailable
+      }
+
+      function setChoice(value) {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch (error) {
+          // localStorage unavailable
+        }
+        if (banner) {
+          banner.hidden = true;
+        }
+      }
+
+      if (acceptButton) {
+        acceptButton.addEventListener('click', () => setChoice('accepted'));
+      }
+
+      if (declineButton) {
+        declineButton.addEventListener('click', () => setChoice('declined'));
+      }
+
+      // Newsletter form: show a friendly success message only.
+      const newsletterForm = document.querySelector('[data-newsletter-form]');
+      if (newsletterForm) {
+        const status = newsletterForm.querySelector('[data-newsletter-status]');
+        newsletterForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const nameField = newsletterForm.querySelector('input[name="newsletter-name"]');
+          const emailField = newsletterForm.querySelector('input[name="newsletter-email"]');
+          const name = nameField ? nameField.value.trim() : '';
+          const email = emailField ? emailField.value.trim() : '';
+
+          if (!name || !email) {
+            if (status) {
+              status.textContent = 'Please enter your name and email.';
+            }
+            return;
+          }
+
+          if (status) {
+            status.textContent = `Thanks, ${name}. We will send updates when there is something new.`;
+          }
+          newsletterForm.reset();
+        });
+      }
+
+      // Contact form: front-end success message only.
+      const contactForm = document.querySelector('[data-contact-form]');
+      if (contactForm) {
+        const status = contactForm.querySelector('[data-contact-status]');
+        contactForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const nameField = contactForm.querySelector('input[name="contact-name"]');
+          const emailField = contactForm.querySelector('input[name="contact-email"]');
+          const messageField = contactForm.querySelector('textarea[name="contact-message"]');
+          const name = nameField ? nameField.value.trim() : '';
+          const email = emailField ? emailField.value.trim() : '';
+          const message = messageField ? messageField.value.trim() : '';
+
+          if (!name || !email || !message) {
+            if (status) {
+              status.textContent = 'Please fill in your name, email, and message.';
+            }
+            return;
+          }
+
+          if (status) {
+            status.textContent = `Thanks, ${name}. Your message is in our inbox.`;
+          }
+          contactForm.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

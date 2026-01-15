@@ -1,195 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
-    <title>404 - Page not found</title>
-    <meta
-      name="description"
-      content="Page not found. Check the address and try again."
-    >
-    <style>
-      :root {
-        --hs-404-ink: #1f2328;
-        --hs-404-muted: #4b5563;
-        --hs-404-line: rgba(31, 35, 40, 0.14);
-        --hs-404-paper: rgba(255, 255, 255, 0.92);
-        --hs-404-warm: #f2b95f;
-        --hs-404-cool: #8bc8c4;
-        --hs-404-shadow: rgba(15, 23, 42, 0.22);
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found | Suomiparhaatgames</title>
+  <meta name="description" content="We could not find that page.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --night: #f7f3ed;
+      --surface: #ffffff;
+      --glow: #2fae9c;
+      --ember: #f07b5a;
+      --sun: #f1c56d;
+      --ink: #1f1b16;
+      --muted: #4f5a65;
+      --focus: #2f6f8f;
+      --shadow: 0 22px 60px rgba(41, 36, 28, 0.18);
+    }
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-regular-400.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
 
-      * {
-        box-sizing: border-box;
-      }
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-bold-700.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        color: var(--hs-404-ink);
-        background:
-          radial-gradient(1100px 520px at 15% 10%, rgba(242, 185, 95, 0.35), transparent 60%),
-          radial-gradient(1000px 620px at 85% 80%, rgba(139, 200, 196, 0.35), transparent 65%),
-          linear-gradient(160deg, #f7f2e9 0%, #eef4f2 55%, #f8efe2 100%);
-        font-family: "Avenir Next", "Futura", "Gill Sans", "Trebuchet MS", sans-serif;
-      }
 
-      .hs-404-stage {
-        position: relative;
-        width: min(720px, 100%);
-      }
+    * {
+      box-sizing: border-box;
+    }
 
-      .hs-404-orbit {
-        position: absolute;
-        inset: -28px;
-        border-radius: 28px;
-        border: 1px dashed var(--hs-404-line);
-        transform: rotate(-2deg);
-        animation: slow-spin 26s linear infinite;
-        pointer-events: none;
-      }
+    body {
+      margin: 0;
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      background: radial-gradient(1200px 600px at 8% -10%, rgba(47, 174, 156, 0.22), transparent 60%),
+        radial-gradient(900px 500px at 92% 0%, rgba(240, 123, 90, 0.22), transparent 60%),
+        #f7f3ed;
+      color: var(--ink);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.5rem 5rem;
+    }
 
-      .hs-404-orbit::before,
-      .hs-404-orbit::after {
-        content: "";
-        position: absolute;
-        border-radius: 999px;
-        filter: blur(1px);
-        opacity: 0.7;
-      }
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-      .hs-404-orbit::before {
-        width: 140px;
-        height: 140px;
-        top: -30px;
-        left: 12%;
-        background: radial-gradient(circle, rgba(242, 185, 95, 0.45), transparent 65%);
-        animation: drift 9s ease-in-out infinite;
-      }
+    body::before {
+      background: linear-gradient(120deg, rgba(31, 27, 22, 0.04) 0%, transparent 40%);
+    }
 
-      .hs-404-orbit::after {
-        width: 190px;
-        height: 190px;
-        bottom: -50px;
-        right: 8%;
-        background: radial-gradient(circle, rgba(139, 200, 196, 0.45), transparent 65%);
-        animation: drift 11s ease-in-out infinite reverse;
-      }
+    body::after {
+      background: radial-gradient(500px 320px at 75% 85%, rgba(241, 197, 109, 0.2), transparent 70%);
+    }
 
-      .hs-404-card {
-        position: relative;
-        padding: 36px 38px;
-        border-radius: 22px;
-        background: var(--hs-404-paper);
-        border: 1px solid rgba(31, 35, 40, 0.08);
-        box-shadow: 0 24px 60px var(--hs-404-shadow);
-        backdrop-filter: blur(6px);
-        animation: rise-in 700ms ease-out both;
-      }
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
 
-      .hs-404-code {
-        display: inline-block;
-        padding: 6px 14px;
-        border-radius: 999px;
-        background: rgba(31, 35, 40, 0.08);
-        font-weight: 600;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        font-size: 0.78rem;
-      }
+    h1 {
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      letter-spacing: 0.04em;
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      margin: 0 0 0.8rem;
+    }
 
-      .hs-404-title {
-        margin: 18px 0 8px;
-        font-size: clamp(2.1rem, 4vw, 2.8rem);
-        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-        letter-spacing: 0.02em;
-      }
+    .notfound-wrap-r1h4z8 {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 24px;
+      padding: 2.4rem 2rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+      box-shadow: var(--shadow);
+      max-width: 520px;
+    }
 
-      .hs-404-text {
-        margin: 0 0 14px;
-        line-height: 1.65;
-        color: var(--hs-404-muted);
-      }
+    .notfound-wrap-r1h4z8 strong {
+      display: block;
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      color: var(--sun);
+      margin-bottom: 0.6rem;
+    }
 
-      .hs-404-meta {
-        margin-top: 18px;
-        padding-top: 14px;
-        border-top: 1px solid var(--hs-404-line);
-        font-size: 0.9rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--hs-404-muted);
-      }
+    [data-cookie-banner] {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: 1.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
 
-      @keyframes rise-in {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    [data-cookie-banner] p {
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
 
-      @keyframes slow-spin {
-        from {
-          transform: rotate(-2deg);
-        }
-        to {
-          transform: rotate(358deg);
-        }
-      }
+    [data-cookie-actions] {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
 
-      @keyframes drift {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(10px);
-        }
-      }
+    button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, var(--sun), var(--ember));
+      color: #1c120d;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
 
-      @media (max-width: 640px) {
-        body {
-          padding: 18px;
-        }
+    button[data-cookie-action="decline"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.3);
+      box-shadow: none;
+    }
 
-        .hs-404-card {
-          padding: 28px 26px;
-        }
-      }
+    button:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <main class="notfound-wrap-r1h4z8">
+    <strong>404</strong>
+    <h1>Page not found.</h1>
+    <p>The page you are looking for is not here. Check the address and try again.</p>
+    <p>If you typed the URL by hand, a small typo could be the reason.</p>
+  </main>
 
-      @media (prefers-reduced-motion: reduce) {
-        .hs-404-orbit,
-        .hs-404-orbit::before,
-        .hs-404-orbit::after,
-        .hs-404-card {
-          animation: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hs-404-stage">
-      <div class="hs-404-orbit" aria-hidden="true"></div>
-      <main class="hs-404-card">
-        <span class="hs-404-code">Error 404</span>
-        <h1 class="hs-404-title">Page not found</h1>
-        <p class="hs-404-text">
-          The page you are looking for is not here. It may have been moved, renamed, or typed
-          incorrectly.
-        </p>
-        <p class="hs-404-text">
-          Double-check the address and try again.
-        </p>
-        <div class="hs-404-meta">No links available on this page</div>
-      </main>
+  <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <div data-cookie-actions>
+      <button type="button" data-cookie-action="accept">Accept</button>
+      <button type="button" data-cookie-action="decline">Decline</button>
     </div>
-  </body>
+  </div>
+
+  <script>
+    // Simple page interactions: cookie consent only.
+    (function () {
+      // Cookie banner: save accept/decline choice in localStorage.
+      const banner = document.querySelector('[data-cookie-banner]');
+      const acceptButton = document.querySelector('[data-cookie-action="accept"]');
+      const declineButton = document.querySelector('[data-cookie-action="decline"]');
+      const storageKey = 'spg_cookie_choice';
+
+      try {
+        if (banner && localStorage.getItem(storageKey)) {
+          banner.hidden = true;
+        }
+      } catch (error) {
+        // localStorage unavailable
+      }
+
+      function setChoice(value) {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch (error) {
+          // localStorage unavailable
+        }
+        if (banner) {
+          banner.hidden = true;
+        }
+      }
+
+      if (acceptButton) {
+        acceptButton.addEventListener('click', () => setChoice('accepted'));
+      }
+
+      if (declineButton) {
+        declineButton.addEventListener('click', () => setChoice('declined'));
+      }
+    })();
+  </script>
+</body>
 </html>

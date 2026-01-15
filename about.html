@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Suomiparhaatgames</title>
+  <meta name="description" content="Learn the story behind Suomiparhaatgames, our play-for-fun approach, and how we keep free-play clear and honest.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --night: #f7f3ed;
+      --surface: #ffffff;
+      --surface-2: #f2ebe3;
+      --glow: #2fae9c;
+      --ember: #f07b5a;
+      --sun: #f1c56d;
+      --ink: #1f1b16;
+      --muted: #4f5a65;
+      --focus: #2f6f8f;
+      --shadow: 0 22px 60px rgba(41, 36, 28, 0.18);
+    }
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-regular-400.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Alro";
+      src: url("otf/alro-alro-bold-700.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      background: radial-gradient(1200px 600px at 8% -10%, rgba(47, 174, 156, 0.22), transparent 60%),
+        radial-gradient(900px 500px at 92% 0%, rgba(240, 123, 90, 0.22), transparent 60%),
+        #f7f3ed;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background: linear-gradient(120deg, rgba(31, 27, 22, 0.04) 0%, transparent 40%);
+    }
+
+    body::after {
+      background: radial-gradient(500px 320px at 75% 85%, rgba(241, 197, 109, 0.2), transparent 70%);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4.2vw, 3.9rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 243, 237, 0.92);
+      border-bottom: 1px solid rgba(31, 27, 22, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    header > div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    header > div > a {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--sun);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.3rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      opacity: 0.78;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      opacity: 1;
+      color: var(--glow);
+    }
+
+    nav a[aria-current="page"] {
+      color: var(--sun);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    main > section {
+      padding: 3.8rem 1.5rem;
+      animation: rise 0.8s ease both;
+    }
+
+    main > section:nth-of-type(2) {
+      animation-delay: 0.1s;
+    }
+
+    main > section:nth-of-type(3) {
+      animation-delay: 0.2s;
+    }
+
+    main > section:nth-of-type(4) {
+      animation-delay: 0.3s;
+    }
+
+    main > section > div {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    button,
+    a[data-cta],
+    a[data-play] {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--sun), var(--ember));
+      color: #1c120d;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover,
+    a[data-cta]:hover,
+    a[data-play]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(41, 36, 28, 0.24);
+    }
+
+    a[data-cta="ghost"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.22);
+      box-shadow: none;
+    }
+
+    a[data-cta="ghost"]:hover {
+      border-color: rgba(31, 27, 22, 0.45);
+      transform: translateY(-1px);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 27, 22, 0.12);
+      background: rgba(245, 239, 231, 0.95);
+    }
+
+    footer > div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.6rem 1.5rem;
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    footer form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    footer small {
+      color: var(--muted);
+    }
+
+    [data-cookie-banner] {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: 1.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(31, 27, 22, 0.18);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    [data-cookie-banner] p {
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    [data-cookie-actions] {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    button[data-cookie-action="decline"] {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 22, 0.3);
+      box-shadow: none;
+    }
+
+    .about-hero-f3r9w4 {
+      padding-top: 5.2rem;
+      background-image: linear-gradient(120deg, rgba(10, 8, 7, 0.72), rgba(10, 8, 7, 0.38)), url("3d-dark-grunge-display-background-with-smoky-atmosphere.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .about-hero-f3r9w4 > div {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-hero-f3r9w4 > div > div {
+      color: #fdf7ef;
+    }
+
+    .about-hero-f3r9w4 > div > div p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .about-hero-f3r9w4 a[data-cta],
+    .about-hero-f3r9w4 a[data-play],
+    .about-hero-f3r9w4 button {
+      color: #fdf7ef;
+      background: linear-gradient(135deg, rgba(47, 174, 156, 0.85), rgba(240, 123, 90, 0.85));
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .about-hero-f3r9w4 a[data-cta="ghost"] {
+      color: #fdf7ef;
+      border-color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.08);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .about-hero-f3r9w4 a[data-cta="ghost"]:hover {
+      border-color: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .about-hero-f3r9w4 aside {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.96));
+      border-radius: 24px;
+      padding: 1.6rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .about-hero-f3r9w4 aside ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .about-hero-f3r9w4 aside strong {
+      color: var(--sun);
+    }
+
+    .about-what-g8y2k5 ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.6rem 0 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .about-what-g8y2k5 li {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 18px;
+      padding: 1.2rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+    }
+
+    .about-fair-h1u6p9 > div > div {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .about-fair-h1u6p9 article {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 18px;
+      padding: 1.2rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+    }
+
+    .about-faq-i5s8d2 details {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(31, 27, 22, 0.12);
+      margin-bottom: 0.75rem;
+    }
+
+    .about-faq-i5s8d2 summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .about-faq-i5s8d2 summary:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 720px) {
+      .about-what-g8y2k5 ul,
+      .about-fair-h1u6p9 > div > div {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 980px) {
+      .about-hero-f3r9w4 > div {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .about-what-g8y2k5 ul {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      footer > div {
+        grid-template-columns: 1.3fr 1fr 0.8fr;
+        align-items: start;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" aria-label="Suomiparhaatgames home">Suomiparhaatgames</a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="games.html">Games</a>
+        <a href="play.html">Play</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="policy.html">Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-hero-f3r9w4">
+      <div>
+        <div>
+          <p>Why we built this</p>
+          <h1>Born from late-night playlists and a love of clean interfaces.</h1>
+          <p>Suomiparhaatgames started as a small list of game links shared among friends in Helsinki. We liked the calm pacing and clean layouts, so we built a social casino site around that idea.</p>
+          <p>Everything here is for entertainment. There is no real money, no prizes, and no cash value.</p>
+          <a href="games.html" data-cta="primary">See Pop Sync details</a>
+        </div>
+        <aside>
+          <h3>What we try to do well</h3>
+          <ul>
+            <li>
+              <strong>Play first</strong>
+              <p>Every game opens in free-play mode and is labeled clearly.</p>
+            </li>
+            <li>
+              <strong>Plain language</strong>
+              <p>We describe the features without hype or jargon.</p>
+            </li>
+            <li>
+              <strong>Relaxed pace</strong>
+              <p>Sessions are meant for short, low-pressure breaks.</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>Two years in the making</h2>
+          <p>A longer look at how Pop Sync and the studio came together.</p>
+        </header>
+        <p>Two years ago we registered the company after meeting for late-night project sessions in a coworking space near the harbor. We were trading playlists and game links, and we kept talking about how noisy most play sites felt. We wanted something calmer, a space that felt like a short set rather than a marathon.</p>
+        <p>We chose the name Suomiparhaatgames because it sounded warm in Finnish and reminded us to stay local and direct. At first it was only a single page that loaded a game for friends. The feedback was blunt and helpful; people wanted clarity, not hype, and they wanted to see the rules upfront.</p>
+        <p><strong>Year one</strong> was spent shaping the mood. We prototyped Pop Sync with a focus on rhythm cues, bright notes, and a steady pace that does not push you to keep spinning. The visual language came from old concert posters and late-night neon in downtown Helsinki. We tuned the colors, background glow, and short looped animations until it felt like a song you could return to.</p>
+        <p><strong>Year two</strong> was about tightening the experience. We reduced the site to one theme so we could label it well, test it with real people, and keep the copy honest. We also built the navigation, disclaimers, and forms to be clean and respectful. There is no paywall and no prize talk because the point is the atmosphere, not the stakes.</p>
+        <p>Pop Sync itself is our small, focused game. It uses a simple rhythm reel and a pop-inspired palette so the game reads quickly and feels warm, not overwhelming. The tempo is steady, the visuals are bright, and the whole thing is meant to be played for a few minutes at a time, the way you might replay a favorite chorus.</p>
+        <p>We are still young, but the last two years taught us that clarity is a feature. If you leave with a sense of what the game is, how it works, and why it exists, we have done our job. That is why we continue to polish this single theme before expanding anything else.</p>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>How we build the site week to week</h2>
+          <p>Short tasks, fast feedback, and lots of editing.</p>
+        </header>
+        <p>We still plan around class schedules, so progress happens in short blocks. We keep a shared checklist and aim for one meaningful improvement at a time, even if it is just cleaner copy or a more readable section.</p>
+        <p>Most of the layout starts on paper. We sketch what the page should feel like, then translate it into HTML and keep the CSS simple so it does not get in the way of the game.</p>
+        <p>We test on older laptops and phones because that is what we use every day. If something feels heavy, we cut it back until it loads fast and looks calm.</p>
+        <p>The writing is also part of the build. If a sentence sounds like marketing, we rewrite it. We want the page to read like a person talking, not a brochure.</p>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>What we say yes to</h2>
+          <p>Small choices that make the experience feel honest.</p>
+        </header>
+        <p>We say yes to clear labels, short sessions, and reminders that this is free-play only. Those lines are not just there for legal reasons; they are part of the tone.</p>
+        <p>We also say yes to a single theme while we are still small. It lets us know the game deeply and speak about it in a way that feels accurate.</p>
+        <p>We say no to tricks that keep people clicking. There are no forced sign-ups, no surprise paywalls, and no streaks or popups, and we try to keep the play area as clean as possible.</p>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>What Pop Sync is trying to be</h2>
+          <p>A quick, readable game that stays friendly.</p>
+        </header>
+        <p>Pop Sync is our small experiment in making a game feel calm. The reels are easy to read, the notes are bright, and the pace stays steady so you can step away without feeling like you missed something.</p>
+        <p>We test it on older laptops and phones because that is what we use every day. If the text looks fuzzy or the screen feels busy, we cut it back.</p>
+        <p>Our short checklist is simple: clear labels, a calm tempo, and honest copy. It sounds basic, but those three things keep us grounded when we want to add extras.</p>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <header>
+          <h2>Responsible play and transparency</h2>
+          <p>Clear boundaries keep this a casual space.</p>
+        </header>
+        <p>Suomiparhaatgames is free-play only. We do not offer real-money gambling, deposits, withdrawals, or cash-out.</p>
+        <p>No purchase is required to play, and we do not ask for payment details. If you see virtual chips or points, they are for fun and have no cash value.</p>
+        <p>If play stops feeling fun, take a break and come back later. We would rather you step away than push through.</p>
+      </div>
+    </section>
+
+    <section class="about-what-g8y2k5">
+      <div>
+        <header>
+          <h2>What you can do here</h2>
+          <p>Explore Pop Sync and keep the page handy for later.</p>
+        </header>
+        <ul>
+          <li>
+            <h3>Explore Pop Sync</h3>
+            <p>Pop music visuals with neon accents and a steady beat.</p>
+          </li>
+          <li>
+            <h3>Play instantly</h3>
+            <p>No download or account required.</p>
+          </li>
+          <li>
+            <h3>Save Pop Sync</h3>
+            <p>Bookmark Pop Sync and return anytime.</p>
+          </li>
+          <li>
+            <h3>Share suggestions</h3>
+            <p>Send a link to friends or suggest new ideas.</p>
+          </li>
+          <li>
+            <h3>Stay in control</h3>
+            <p>Clear reminders that this is play for fun.</p>
+          </li>
+          <li>
+            <h3>Learn the flow</h3>
+            <p>Short notes explain what the game includes.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about-fair-h1u6p9">
+      <div>
+        <header>
+          <h2>Fairness and transparency</h2>
+          <p>We keep the rules clear so you know what you are seeing.</p>
+        </header>
+        <div>
+          <article>
+            <h3>Game outcomes</h3>
+            <p>Each game runs in free-play only. Results are produced by the game software; we do not alter them and there are no real-money stakes.</p>
+          </article>
+          <article>
+            <h3>Plain-language guidance</h3>
+            <p>We label the features and pacing in everyday terms.</p>
+          </article>
+          <article>
+            <h3>Entertainment focus</h3>
+            <p>This is entertainment, not gambling. There are no prizes, no cash value, and no competition.</p>
+          </article>
+          <article>
+            <h3>18+ responsibility</h3>
+            <p>Adults only; we keep the reminder visible and encourage breaks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-faq-i5s8d2">
+      <div>
+        <header>
+          <h2>Quick FAQ</h2>
+          <p>Short answers to the questions we hear most often.</p>
+        </header>
+        <details>
+          <summary>Do I need to pay to play?</summary>
+          <p>No. Everything here is free play.</p>
+        </details>
+        <details>
+          <summary>Can I win real money or prizes?</summary>
+          <p>No. There are no prizes and no cash value.</p>
+        </details>
+        <details>
+          <summary>Is there an age requirement?</summary>
+          <p>Yes. You must be 18 or older.</p>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No account is required to browse or play.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>
+        <h2>Suomiparhaatgames</h2>
+        <p>Finnish-inspired play-for-fun with clear labels and a relaxed pace.</p>
+        <p><strong>18+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
+      </div>
+      <div>
+        <h3>Newsletter updates</h3>
+        <form data-newsletter-form>
+          <label>
+            Name
+            <input type="text" name="newsletter-name" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>
+            Email
+            <input type="email" name="newsletter-email" autocomplete="email" placeholder="you@example.com">
+          </label>
+          <button type="submit">Get updates</button>
+          <small data-newsletter-status aria-live="polite"></small>
+        </form>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="games.html">Game library</a></li>
+          <li><a href="play.html">Play</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="policy.html">Privacy</a></li>
+        </ul>
+        <small>Support: support@suomiparhaatgames.example</small>
+      </div>
+    </div>
+  </footer>
+
+  <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <div data-cookie-actions>
+      <button type="button" data-cookie-action="accept">Accept</button>
+      <button type="button" data-cookie-action="decline">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    // Simple page interactions: cookie consent and newsletter feedback.
+    (function () {
+      // Cookie banner: save accept/decline choice in localStorage.
+      const banner = document.querySelector('[data-cookie-banner]');
+      const acceptButton = document.querySelector('[data-cookie-action="accept"]');
+      const declineButton = document.querySelector('[data-cookie-action="decline"]');
+      const storageKey = 'spg_cookie_choice';
+
+      try {
+        if (banner && localStorage.getItem(storageKey)) {
+          banner.hidden = true;
+        }
+      } catch (error) {
+        // localStorage unavailable
+      }
+
+      function setChoice(value) {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch (error) {
+          // localStorage unavailable
+        }
+        if (banner) {
+          banner.hidden = true;
+        }
+      }
+
+      if (acceptButton) {
+        acceptButton.addEventListener('click', () => setChoice('accepted'));
+      }
+
+      if (declineButton) {
+        declineButton.addEventListener('click', () => setChoice('declined'));
+      }
+
+      // Newsletter form: show a friendly success message only.
+      const newsletterForm = document.querySelector('[data-newsletter-form]');
+      if (newsletterForm) {
+        const status = newsletterForm.querySelector('[data-newsletter-status]');
+        newsletterForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const nameField = newsletterForm.querySelector('input[name="newsletter-name"]');
+          const emailField = newsletterForm.querySelector('input[name="newsletter-email"]');
+          const name = nameField ? nameField.value.trim() : '';
+          const email = emailField ? emailField.value.trim() : '';
+
+          if (!name || !email) {
+            if (status) {
+              status.textContent = 'Please enter your name and email.';
+            }
+            return;
+          }
+
+          if (status) {
+            status.textContent = `Thanks, ${name}. We will send updates when there is something new.`;
+          }
+          newsletterForm.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

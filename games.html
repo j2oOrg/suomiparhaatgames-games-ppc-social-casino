@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Games | Suomiparhaatgames</title>
-  <meta name="description" content="Browse the Suomiparhaatgames page featuring Pop Sync, our single social casino theme.">
+  <meta name="description" content="Browse the Suomiparhaatgames game library featuring dice, matching, and reel-style free-play games. Free-play only. No real money or prizes. 21+.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="favicon.ico">
   <style>
@@ -328,6 +328,11 @@
       margin-top: 1.8rem;
     }
 
+    .games-grid-k4z6t1 > div > div {
+      display: grid;
+      gap: 1.2rem;
+    }
+
     .games-grid-k4z6t1 article {
       background: rgba(255, 255, 255, 0.88);
       border-radius: 20px;
@@ -348,10 +353,11 @@
     .games-grid-k4z6t1 article:nth-child(9) { animation-delay: 0.4s; }
     .games-grid-k4z6t1 article:nth-child(10) { animation-delay: 0.45s; }
 
-    .games-grid-k4z6t1 svg {
+    .games-grid-k4z6t1 img {
       width: 100%;
       height: 120px;
       border-radius: 14px;
+      object-fit: cover;
       display: block;
     }
 
@@ -371,13 +377,13 @@
     }
 
     @media (min-width: 720px) {
-      .games-grid-k4z6t1 > div {
+      .games-grid-k4z6t1 > div > div {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 1020px) {
-      .games-grid-k4z6t1 > div {
+      .games-grid-k4z6t1 > div > div {
         grid-template-columns: repeat(3, 1fr);
       }
 
@@ -426,36 +432,46 @@
     <section class="games-hero-j9l3q7">
       <div>
         <p>Game library</p>
-        <h1>Pop Sync is the only social casino theme right now.</h1>
-        <p>This page highlights the Pop Sync game with a clear description and a direct play link.</p>
+        <h1>Three games for a short break.</h1>
+        <p>Dice, matching, and reel-style play. Free-play only and labeled up front.</p>
       </div>
     </section>
 
+    <!-- Game list: links to local, free-play games that run in the browser. No payments or real-money play. -->
     <section class="games-grid-k4z6t1">
       <div>
         <header>
-          <h2>Pop Sync</h2>
-          <p>One theme with clear details.</p>
+          <h2>Game lineup</h2>
+          <p>Small set, clear labels.</p>
         </header>
         <div>
-          <article>
-            <svg viewBox="0 0 120 80" role="img" aria-label="Pop Sync preview">
-              <defs>
-                <linearGradient id="grad-pop" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#3dd6c6" />
-                  <stop offset="100%" stop-color="#ff7a5a" />
-                </linearGradient>
-              </defs>
-              <rect width="120" height="80" rx="14" fill="url(#grad-pop)" />
-              <circle cx="32" cy="40" r="12" fill="#ffffff" opacity="0.7" />
-              <circle cx="60" cy="30" r="8" fill="#ffffff" opacity="0.6" />
-              <rect x="74" y="22" width="26" height="36" rx="8" fill="#0b1320" opacity="0.35" />
-            </svg>
-            <span>Rhythm reels</span>
-            <h3>Pop Sync</h3>
-            <p>Neon notes and a steady beat, built for a quick warmup.</p>
+            <article>
+              <img src="dice.webp" alt="Harbor Dice preview" loading="lazy">
+              <span>Dice break</span>
+              <h3>Harbor Dice</h3>
+              <p>Roll two dice and see your total.</p>
             <div>
-              <a href="play.html?game=nsyncpop" data-play>Play</a>
+              <a href="dice.html" data-play>Play</a>
+              <small>Free-play only</small>
+            </div>
+          </article>
+            <article>
+              <img src="match.webp" alt="Aurora Match preview" loading="lazy">
+              <span>Matching break</span>
+              <h3>Aurora Match</h3>
+              <p>Flip cards, find pairs, take your time.</p>
+            <div>
+              <a href="match.html" data-play>Play</a>
+              <small>Free-play only</small>
+            </div>
+          </article>
+            <article>
+              <img src="reels.webp" alt="Reel Drift preview" loading="lazy">
+              <span>Reel rhythm</span>
+              <h3>Reel Drift</h3>
+              <p>Spin three reels and look for a match.</p>
+            <div>
+              <a href="reels.html" data-play>Play</a>
               <small>Free-play only</small>
             </div>
           </article>
@@ -467,37 +483,38 @@
       <div>
         <header>
           <h2>How we write the game notes</h2>
-          <p>Short labels, no overpromises.</p>
+          <p>Short labels, no hype.</p>
         </header>
-        <p>Even with one theme, we treat this page like a catalog. The quick label is just our shorthand for the vibe, not a list of special features.</p>
-        <p>We wrote the description between classes and kept it short because we wanted it to feel like a note, not a pitch.</p>
-        <p>The point is to help you decide if Pop Sync is your kind of break. If it is not, that is fine; we would rather be clear than clever.</p>
-        <p>If we add more themes later, the writing will stay the same: calm, plain, and clear about free-play only and no prizes.</p>
+        <p>We treat this page like a tiny catalog. Each note is here to say what the game feels like.</p>
+        <p>If a sentence sounds like marketing, we cut it down.</p>
+        <p>The point is to help you decide without pressure. If a game is not your thing, no worries.</p>
+        <p>We will keep the notes honest as we tweak or add games.</p>
       </div>
     </section>
 
     <section>
       <div>
         <header>
-          <h2>Why only one theme</h2>
-          <p>Focus helps us keep the details honest.</p>
+          <h2>Why only three games</h2>
+          <p>We keep it small on purpose.</p>
         </header>
-        <p>We are a small team, and we are still finishing school. Keeping one theme means we can test it, rewrite it, and keep the page accurate without stretching too thin.</p>
-        <p>Pop Sync is the one we know best. We can explain it in plain language and keep the pacing steady because we actually play it ourselves.</p>
-        <p>When we add more, it will be because the core is solid, not because we needed to fill space.</p>
+        <p>We are a small team and still in school. A short lineup means we can test each game and keep the labels accurate.</p>
+        <p>Each game hits a different mood: dice for a simple roll, slower matching, and a steady reel loop.</p>
+        <p>If we add more, it will be because the basics feel solid.</p>
       </div>
     </section>
 
     <section>
       <div>
         <header>
-          <h2>What to expect from Pop Sync</h2>
-          <p>Bright notes, steady tempo, and a short session.</p>
+          <h2>What to expect from the lineup</h2>
+          <p>Simple overviews before you press play.</p>
         </header>
-        <p>The game leans into a pop-concert vibe. Think clean neon, simple shapes, and a rhythm that does not rush you.</p>
-        <p>It is free-play only, with no real money and no prizes. There are no deposits, withdrawals, or cash-out, and no purchase is required to play.</p>
-        <p>If you typed "kasinot" to find this page, keep in mind that Pop Sync is meant for casual, free-play sessions.</p>
-        <p>If you want a quick reset between classes or after work, this is the kind of play session we had in mind.</p>
+        <p><strong>Harbor Dice</strong> is a simple roll with a clear total.</p>
+        <p><strong>Aurora Match</strong> is a memory grid with no timer.</p>
+        <p><strong>Reel Drift</strong> is a slot-style loop with simple symbols and no payouts.</p>
+        <p>All games are free-play only. No deposits, withdrawals, or cash-out. No purchase needed.</p>
+        <p>Some people search "kasinot" and end up here; these are free-play games with no real-money gambling, no prizes or cash value, and 21+ only.</p>
       </div>
     </section>
   </main>
@@ -506,26 +523,11 @@
     <div>
       <div>
         <h2>Suomiparhaatgames</h2>
-        <p>Finnish-inspired play-for-fun with clear labels and a relaxed pace.</p>
-        <p><strong>18+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
+        <p>Free-play games with clear labels and short sessions.</p>
+        <p><strong>21+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
       </div>
       <div>
-        <h3>Newsletter updates</h3>
-        <form data-newsletter-form>
-          <label>
-            Name
-            <input type="text" name="newsletter-name" autocomplete="name" placeholder="Your name">
-          </label>
-          <label>
-            Email
-            <input type="email" name="newsletter-email" autocomplete="email" placeholder="you@example.com">
-          </label>
-          <button type="submit">Get updates</button>
-          <small data-newsletter-status aria-live="polite"></small>
-        </form>
-      </div>
-      <div>
-        <h3>Quick links</h3>
+        <h3>Site links</h3>
         <ul>
           <li><a href="games.html">Game library</a></li>
           <li><a href="play.html">Play</a></li>
@@ -533,13 +535,13 @@
           <li><a href="terms.html">Terms</a></li>
           <li><a href="policy.html">Privacy</a></li>
         </ul>
-        <small>Support: support@suomiparhaatgames.example</small>
+        <small>Support: <a href="mailto:support@suomiparhaatgames.games">support@suomiparhaatgames.games</a></small>
       </div>
     </div>
   </footer>
 
   <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
-    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <p>We use cookies to remember your choice and keep the site working.</p>
     <div data-cookie-actions>
       <button type="button" data-cookie-action="accept">Accept</button>
       <button type="button" data-cookie-action="decline">Decline</button>
@@ -547,7 +549,8 @@
   </div>
 
   <script>
-    // Simple page interactions: cookie consent and newsletter feedback.
+    // Simple page interactions: cookie consent.
+    // Stores the choice in localStorage only; no tracking, payments, or network requests.
     (function () {
       // Cookie banner: save accept/decline choice in localStorage.
       const banner = document.querySelector('[data-cookie-banner]');
@@ -580,31 +583,6 @@
 
       if (declineButton) {
         declineButton.addEventListener('click', () => setChoice('declined'));
-      }
-
-      // Newsletter form: show a friendly success message only.
-      const newsletterForm = document.querySelector('[data-newsletter-form]');
-      if (newsletterForm) {
-        const status = newsletterForm.querySelector('[data-newsletter-status]');
-        newsletterForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-          const nameField = newsletterForm.querySelector('input[name="newsletter-name"]');
-          const emailField = newsletterForm.querySelector('input[name="newsletter-email"]');
-          const name = nameField ? nameField.value.trim() : '';
-          const email = emailField ? emailField.value.trim() : '';
-
-          if (!name || !email) {
-            if (status) {
-              status.textContent = 'Please enter your name and email.';
-            }
-            return;
-          }
-
-          if (status) {
-            status.textContent = `Thanks, ${name}. We will send updates when there is something new.`;
-          }
-          newsletterForm.reset();
-        });
       }
     })();
   </script>

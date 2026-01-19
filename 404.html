@@ -162,7 +162,7 @@
   </main>
 
   <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
-    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <p>We use cookies to remember your choice and keep the site working.</p>
     <div data-cookie-actions>
       <button type="button" data-cookie-action="accept">Accept</button>
       <button type="button" data-cookie-action="decline">Decline</button>
@@ -171,6 +171,7 @@
 
   <script>
     // Simple page interactions: cookie consent only.
+    // Stores the choice in localStorage only; no tracking, payments, or network requests.
     (function () {
       // Cookie banner: save accept/decline choice in localStorage.
       const banner = document.querySelector('[data-cookie-banner]');

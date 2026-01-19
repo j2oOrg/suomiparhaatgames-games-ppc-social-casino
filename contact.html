@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Suomiparhaatgames</title>
-  <meta name="description" content="Contact the Suomiparhaatgames team. Ask a question, share feedback, or get a clear answer.">
+  <meta name="description" content="Contact the Suomiparhaatgames team with questions about our free-play games. Free-play only. No real money or prizes. 21+.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="favicon.ico">
   <style>
@@ -328,14 +328,16 @@
     }
 
     .contact-form-o8d5s7 form,
-    .contact-form-o8d5s7 aside {
+    .contact-form-o8d5s7 aside,
+    .contact-form-o8d5s7 .contact-card {
       background: rgba(255, 255, 255, 0.88);
       border-radius: 20px;
       padding: 1.4rem;
       border: 1px solid rgba(31, 27, 22, 0.12);
     }
 
-    .contact-form-o8d5s7 form {
+    .contact-form-o8d5s7 form,
+    .contact-form-o8d5s7 .contact-card {
       display: grid;
       gap: 0.9rem;
     }
@@ -409,43 +411,32 @@
     <section class="contact-hero-n6b1y4">
       <div>
         <p>Contact</p>
-        <h1>We are here to give clear, practical answers.</h1>
-        <p>Send a short message, ask about free play, or share feedback. We respond in plain language.</p>
+        <h1>Questions? Email us.</h1>
+        <p>Send an email with feedback or a question. We try to reply clearly and keep it simple.</p>
       </div>
     </section>
 
     <section class="contact-form-o8d5s7">
       <div>
-        <form data-contact-form>
-          <h2>Send a message</h2>
-          <label>
-            Name
-            <input type="text" name="contact-name" autocomplete="name" placeholder="Your name">
-          </label>
-          <label>
-            Email
-            <input type="email" name="contact-email" autocomplete="email" placeholder="you@example.com">
-          </label>
-          <label>
-            Message
-            <textarea name="contact-message" placeholder="Tell us what is on your mind"></textarea>
-          </label>
-          <button type="submit">Send message</button>
-          <small data-contact-status aria-live="polite"></small>
-        </form>
+        <div class="contact-card">
+          <h2>Email us</h2>
+          <p>Email is the easiest way to reach us. We do our best to read every message.</p>
+          <a href="mailto:support@suomiparhaatgames.games" data-cta="primary">Email support</a>
+          <small>Replies may take a few days, especially on weekends.</small>
+        </div>
         <aside>
-          <h2>Quick answers</h2>
+          <h2>Common questions</h2>
           <details>
             <summary>Are these games real money?</summary>
             <p>No. They are free-play only, with no deposits, cash-out, or cash value.</p>
           </details>
           <details>
             <summary>Do I need to install anything?</summary>
-            <p>No. Everything runs in your browser.</p>
+            <p>No. The games run in your browser.</p>
           </details>
           <details>
             <summary>How can I suggest a game idea?</summary>
-            <p>Send your idea through the form and we will review it.</p>
+            <p>Email your idea and we will take a look when we can.</p>
           </details>
         </aside>
       </div>
@@ -454,12 +445,12 @@
     <section>
       <div>
         <header>
-          <h2>What helps us reply faster</h2>
+          <h2>What helps us reply</h2>
           <p>Small details make a big difference.</p>
         </header>
-        <p>If you are reporting a bug, tell us what device and browser you used. A short sentence is enough, and a screenshot is optional.</p>
-        <p>We are a small team, so replies may take a few days, especially on weekends. We still read every message.</p>
-        <p>We will never ask you for payment details in a message. If you are sending an idea for Pop Sync, include a short note on the mood you are aiming for. We keep a running list and revisit it during updates.</p>
+        <p>If you are reporting a bug, tell us your device and browser. A short sentence is enough, and a screenshot helps.</p>
+        <p>We are a small team, so replies can take a few days, especially on weekends.</p>
+        <p>We do not ask for payment details through email or this site. If you are sending a game idea, add a short note about the mood you want.</p>
       </div>
     </section>
   </main>
@@ -468,26 +459,11 @@
     <div>
       <div>
         <h2>Suomiparhaatgames</h2>
-        <p>Finnish-inspired play-for-fun with clear labels and a relaxed pace.</p>
-        <p><strong>18+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
+        <p>Free-play games with clear labels and short sessions.</p>
+        <p><strong>21+ only.</strong> Entertainment only. No real money, no prizes, no cash value, no deposits or cash-out.</p>
       </div>
       <div>
-        <h3>Newsletter updates</h3>
-        <form data-newsletter-form>
-          <label>
-            Name
-            <input type="text" name="newsletter-name" autocomplete="name" placeholder="Your name">
-          </label>
-          <label>
-            Email
-            <input type="email" name="newsletter-email" autocomplete="email" placeholder="you@example.com">
-          </label>
-          <button type="submit">Get updates</button>
-          <small data-newsletter-status aria-live="polite"></small>
-        </form>
-      </div>
-      <div>
-        <h3>Quick links</h3>
+        <h3>Site links</h3>
         <ul>
           <li><a href="games.html">Game library</a></li>
           <li><a href="play.html">Play</a></li>
@@ -495,13 +471,13 @@
           <li><a href="terms.html">Terms</a></li>
           <li><a href="policy.html">Privacy</a></li>
         </ul>
-        <small>Support: support@suomiparhaatgames.example</small>
+        <small>Support: <a href="mailto:support@suomiparhaatgames.games">support@suomiparhaatgames.games</a></small>
       </div>
     </div>
   </footer>
 
   <div data-cookie-banner role="dialog" aria-live="polite" aria-label="Cookie notice">
-    <p>We use cookies to remember your choice and keep the site working smoothly.</p>
+    <p>We use cookies to remember your choice and keep the site working.</p>
     <div data-cookie-actions>
       <button type="button" data-cookie-action="accept">Accept</button>
       <button type="button" data-cookie-action="decline">Decline</button>
@@ -509,7 +485,8 @@
   </div>
 
   <script>
-    // Simple page interactions: cookie consent, newsletter feedback, and contact form messaging.
+    // Simple page interactions: cookie consent.
+    // Stores the choice in localStorage only; no tracking, payments, or network requests.
     (function () {
       // Cookie banner: save accept/decline choice in localStorage.
       const banner = document.querySelector('[data-cookie-banner]');
@@ -544,57 +521,6 @@
         declineButton.addEventListener('click', () => setChoice('declined'));
       }
 
-      // Newsletter form: show a friendly success message only.
-      const newsletterForm = document.querySelector('[data-newsletter-form]');
-      if (newsletterForm) {
-        const status = newsletterForm.querySelector('[data-newsletter-status]');
-        newsletterForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-          const nameField = newsletterForm.querySelector('input[name="newsletter-name"]');
-          const emailField = newsletterForm.querySelector('input[name="newsletter-email"]');
-          const name = nameField ? nameField.value.trim() : '';
-          const email = emailField ? emailField.value.trim() : '';
-
-          if (!name || !email) {
-            if (status) {
-              status.textContent = 'Please enter your name and email.';
-            }
-            return;
-          }
-
-          if (status) {
-            status.textContent = `Thanks, ${name}. We will send updates when there is something new.`;
-          }
-          newsletterForm.reset();
-        });
-      }
-
-      // Contact form: front-end success message only.
-      const contactForm = document.querySelector('[data-contact-form]');
-      if (contactForm) {
-        const status = contactForm.querySelector('[data-contact-status]');
-        contactForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-          const nameField = contactForm.querySelector('input[name="contact-name"]');
-          const emailField = contactForm.querySelector('input[name="contact-email"]');
-          const messageField = contactForm.querySelector('textarea[name="contact-message"]');
-          const name = nameField ? nameField.value.trim() : '';
-          const email = emailField ? emailField.value.trim() : '';
-          const message = messageField ? messageField.value.trim() : '';
-
-          if (!name || !email || !message) {
-            if (status) {
-              status.textContent = 'Please fill in your name, email, and message.';
-            }
-            return;
-          }
-
-          if (status) {
-            status.textContent = `Thanks, ${name}. Your message is in our inbox.`;
-          }
-          contactForm.reset();
-        });
-      }
     })();
   </script>
 </body>

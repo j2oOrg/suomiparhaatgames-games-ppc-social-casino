@@ -9,15 +9,15 @@
   <link rel="icon" href="favicon.ico">
   <style>
     :root {
-      --night: #f7f3ed;
-      --surface: #ffffff;
-      --glow: #2fae9c;
-      --ember: #f07b5a;
-      --sun: #f1c56d;
-      --ink: #1f1b16;
-      --muted: #4f5a65;
-      --focus: #2f6f8f;
-      --shadow: 0 22px 60px rgba(41, 36, 28, 0.18);
+      --night: #0b0f14;
+      --surface: #141a22;
+      --glow: #4cc7a4;
+      --ember: #e48a5e;
+      --sun: #e2b25c;
+      --ink: #f3eee7;
+      --muted: #b6c0cc;
+      --focus: #69b4da;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
     }
     @font-face {
       font-family: "Alro";
@@ -43,9 +43,9 @@
     body {
       margin: 0;
       font-family: "Alro", "Palatino Linotype", "Times New Roman", serif;
-      background: radial-gradient(1200px 600px at 8% -10%, rgba(47, 174, 156, 0.22), transparent 60%),
-        radial-gradient(900px 500px at 92% 0%, rgba(240, 123, 90, 0.22), transparent 60%),
-        #f7f3ed;
+      background: radial-gradient(1200px 600px at 8% -10%, rgba(76, 199, 164, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 92% 0%, rgba(228, 138, 94, 0.18), transparent 60%),
+        #0b0f14;
       color: var(--ink);
       min-height: 100vh;
       display: grid;
@@ -63,11 +63,11 @@
     }
 
     body::before {
-      background: linear-gradient(120deg, rgba(31, 27, 22, 0.04) 0%, transparent 40%);
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
     }
 
     body::after {
-      background: radial-gradient(500px 320px at 75% 85%, rgba(241, 197, 109, 0.2), transparent 70%);
+      background: radial-gradient(500px 320px at 75% 85%, rgba(226, 178, 92, 0.14), transparent 70%);
     }
 
     p {
@@ -85,10 +85,10 @@
 
     .notfound-wrap-r1h4z8 {
       text-align: center;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(20, 26, 34, 0.92);
       border-radius: 24px;
       padding: 2.4rem 2rem;
-      border: 1px solid rgba(31, 27, 22, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: var(--shadow);
       max-width: 520px;
     }
@@ -107,8 +107,8 @@
       left: 1.5rem;
       max-width: 420px;
       margin-left: auto;
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(31, 27, 22, 0.18);
+      background: rgba(18, 24, 32, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 16px;
       padding: 1rem 1.1rem;
       box-shadow: var(--shadow);
@@ -143,7 +143,7 @@
     button[data-cookie-action="decline"] {
       background: transparent;
       color: var(--ink);
-      border: 1px solid rgba(31, 27, 22, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: none;
     }
 
